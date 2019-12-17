@@ -47,54 +47,195 @@ public class NumbersToWords
 	
 	public String convertOnes(String number)
 	{
-		/*
-		 * converts one digit number 
-		 * calls the findChar method to find the value of a character in the ones place
-		 * call the findOnesAndHundreds method, pass the character from the find Char method into the parameters
-		 * return value
-		 * 
-		 */
+		char character = findChar(number,1);
+		
+		return findOnesAndHundreds(character);
 	}
 	
 	public String findTeens(String number, char character)
 	{
-		/*
-		 * call findChar method to find the character in the ones place
-		 * depending on that character method will return values from 11 to 19
-		 */
+		String word = "";
+		
+		switch(character)
+		{
+		
+			case '0':
+				 word = "";
+				break;
+				
+			case '1':
+				word = "ten";
+				break;
+				
+			case '2':
+				word = "twenty";
+				break;
+				
+			case '3':
+				word = "thirty";
+				break;
+				
+			case '4':
+				word = "fourty";
+				break;
+				
+			case '5':
+				word = "fifty";
+				break;
+				
+			case '6':
+				word = "sixty";
+				break;
+				
+			case '7':
+				word = "seventy";
+				break;
+				
+			case '8':
+				word = "eighty";
+				break;
+				
+			case '9':
+				word = "ninety";
+				break;
+				
+				default:
+					word = "error";
+					break;
+		}
+		return word;
 	}
 	
-	public String findTens(char number)
+	public String findTens(String number)
 	{
-		/*
-		 * decodes characters in the tens place.
-		 * depending on the character method will return a value from ten to ninety
-		 */
+		String word = "";
+		
+		char character = findChar(number, 1);
+		
+		switch(character)
+		{
+		
+			case '0':
+				 word = "";
+				break;
+				
+			case '1':
+				word = "one";
+				break;
+				
+			case '2':
+				word = "two";
+				break;
+				
+			case '3':
+				word = "three";
+				break;
+				
+			case '4':
+				word = "four";
+				break;
+				
+			case '5':
+				word = "five";
+				break;
+				
+			case '6':
+				word = "six";
+				break;
+				
+			case '7':
+				word = "seven";
+				break;
+				
+			case '8':
+				word = "eight";
+				break;
+				
+			case '9':
+				word = "nine";
+				break;
+					
+			default:
+				word = "error";
+				break;
+		}
+		return word;
 	}
 	
 	public String findOnesAndHundreds(char character)
 	{
-		/*
-		 * decode characters in the ones place, and the hundreds place
-		 * since they are pretty much the same
-		 * return a string 
-		 */
+		String word = "";
+		
+		switch(character)
+		{
+		
+		case '0':
+			 word = "";
+			break;
+			
+		case '1':
+			word = "one";
+			break;
+			
+		case '2':
+			word = "two";
+			break;
+			
+		case '3':
+			word = "three";
+			break;
+			
+		case '4':
+			word = "four";
+			break;
+			
+		case '5':
+			word = "five";
+			break;
+			
+		case '6':
+			word = "six";
+			break;
+			
+		case '7':
+			word = "seven";
+			break;
+			
+		case '8':
+			word = "eight";
+			break;
+			
+		case '9':
+			word = "nine";
+			break;
+			
+			default:
+				word = "error";
+				break;		
+		}
+		
+		return word;
 		
 	}
 	
-	public char findChar(String number)
+	public char findChar(String number, int digit)
 	{
-		/*
-		 * finds a character in a specified location and returns that character
-		 */
+		int numCharacter = number.length();
+		
+		numCharacter -= digit;
+		
+		return number.charAt(numCharacter);
+		
 	}
 	
 	public boolean decimals(String number)
 	{
-		/*
-		 * ensures that the decmimal is in the right location
-		 * return true or false
-		 */
+		if(number.contains("."))
+		{
+			if(number.charAt(number.length()-2) == '.' || number.charAt(number.length()-1) == '.')
+				return true;
+		}
+		return false;
 	}
 	
 	public String rounding(double number, int place)
