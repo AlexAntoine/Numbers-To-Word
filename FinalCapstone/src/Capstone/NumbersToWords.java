@@ -21,28 +21,35 @@ public class NumbersToWords
 	}
 	
 	public String convertHundreds(String number)
-	{
-		/*
-		 * initialize a string variable
-		 *check if the length of the string is greater than 2
-		 *call find char method
-		 *find the character in the hundreds place, assign it to a character variable
-		 *call the findOnesAndHundreds method, pass the char variable into the method.
-		 *assign the value to the string variable add the word " hundred" after
-		 *
-		 *
-		 */
+	{	
+		if(number.length() > 2)
+		{
+			char character = findChar(number, 3);
+			
+			return findOnesAndHundreds(character) + " hundred ";
+		}
+		
+		return "";
 	}
 	
 	public String convertTens(String number)
-	{
-		/*
-		 * check if the length of the string is greater than one
-		 * call the findChar method. find the character in the tens place and assign the value to a char variable
-		 * check if the character is equal to 1. if true, call the findTeens method and pass on the character and the number
-		 * return the value
-		 * if not call the findTens method and return the value
-		 */
+	{	
+		if(number.length() > 1)
+		{
+			char character = findChar(number, 2);
+			
+			if(character == '1')
+			{
+				return findTeens(number);
+				
+			}
+			else
+			{
+				return findTens(number, character) + " ";
+			}
+		}
+		
+		return " ";
 	}
 	
 	public String convertOnes(String number)
@@ -52,7 +59,7 @@ public class NumbersToWords
 		return findOnesAndHundreds(character);
 	}
 	
-	public String findTeens(String number, char character)
+	public String findTens(String number, char character)
 	{
 		String word = "";
 		
@@ -106,7 +113,7 @@ public class NumbersToWords
 		return word;
 	}
 	
-	public String findTens(String number)
+	public String findTeens(String number)
 	{
 		String word = "";
 		
@@ -115,44 +122,40 @@ public class NumbersToWords
 		switch(character)
 		{
 		
-			case '0':
-				 word = "";
-				break;
-				
 			case '1':
-				word = "one";
+				word = "eleven";
 				break;
 				
 			case '2':
-				word = "two";
+				word = "twelve";
 				break;
 				
 			case '3':
-				word = "three";
+				word = "thiriteen";
 				break;
 				
 			case '4':
-				word = "four";
+				word = "fourteen";
 				break;
 				
 			case '5':
-				word = "five";
+				word = "fifteen";
 				break;
 				
 			case '6':
-				word = "six";
+				word = "sixteen";
 				break;
 				
 			case '7':
-				word = "seven";
+				word = "seventeen";
 				break;
 				
 			case '8':
-				word = "eight";
+				word = "eighteen";
 				break;
 				
 			case '9':
-				word = "nine";
+				word = "nineteen";
 				break;
 					
 			default:
