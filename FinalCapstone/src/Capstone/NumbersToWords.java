@@ -9,15 +9,17 @@ public class NumbersToWords
 	}
 	
 	public String convertThreeNumbers(String number)
-	{
-		/*
-		 *initialize string variable
-		 *call the convertHundreds method and assign the value to the string variable
-		 *call the convert tens method and add the value to the string variable
-		 *check if the length of the string is greater than one and the character in the tens place is not equal to 1
-		 *if true call convertOnes method and add the value to the string 
-		 *return the string 
-		 */
+	{		
+		String results;
+		
+		results = convertHundreds(number);
+		
+		results += convertTens(number);
+		
+		if(number.length() > 1 && findChar(number, 2) != '1')
+			results += convertOnes(number);
+		
+		return results;
 	}
 	
 	public String convertHundreds(String number)
