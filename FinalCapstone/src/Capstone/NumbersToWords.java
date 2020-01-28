@@ -240,11 +240,16 @@ public class NumbersToWords
 	
 	public String rounding(double number, int place)
 	{
-		/*
-		 * rounds a number three decimal places
-		 * converts that number into an integer and cutting off the remaining digits
-		 * converts the number into a string, return that string
-		 */
+		
+		number /= Math.pow(10,3);
+		
+		double tempDouble = (number * Math.pow(10, place));
+		
+		tempDouble += .5;
+		
+		int tempInt = (int) tempDouble;
+		
+		return Integer.toString(tempInt);
 	}
 
 }
