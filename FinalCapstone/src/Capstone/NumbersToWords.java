@@ -1,11 +1,36 @@
 package Capstone;
 
+import javax.swing.JOptionPane;
+
 public class NumbersToWords
 {
 
 	public NumbersToWords()
 	{
+		String input;
+		String temp = "";
+		String result = "";
+		double tempDouble;
 		
+		input = JOptionPane.showInputDialog("enter a number");
+		
+		tempDouble = Double.parseDouble(input);
+		
+		input = rounding(tempDouble, 3);
+		
+		if(input.length() > 3)
+		{
+			for(int a = 0; a < input.length()-3; a++)
+			{
+				temp += input.charAt(a);
+			}
+			
+			result += convertThreeNumbers(temp) + " thousand ";
+		}
+		
+		result += convertThreeNumbers(input);
+		
+		JOptionPane.showMessageDialog(null, result);
 	}
 	
 	public String convertThreeNumbers(String number)
