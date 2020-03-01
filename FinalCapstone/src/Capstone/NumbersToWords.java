@@ -44,6 +44,9 @@ public class NumbersToWords
 		if(number.length() > 1 && findChar(number, 2) != '1')
 			results += convertOnes(number);
 		
+		else if(number.length() == 1)
+			results += convertOnes(number);
+		
 		return results;
 	}
 	
